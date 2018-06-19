@@ -1,0 +1,51 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+        aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" [routerLink]="['/']">Sistema de Compras | Nova Compra</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="starter-template">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Preço</th>
+          <th>Quantidade</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let produto of produtos">
+          <td>{{produto.descricao}}</td>
+          <td>R$ {{produto.preco}},00</td>
+          <td><input [(ngModel)]="produto.quantidade" type="number" min="0"></td>
+          <td>R$ {{ (produto.preco * produto.quantidade).toFixed(2) }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3">TOTAL</td>
+          <td colspan="1">R$ {{ getTotal().toFixed(2) }}</td>
+        </tr>
+        <tr>
+          <td colspan="3"></td>
+          <td>
+            <button type="button" name="button">REALIZAR PEDIDO</button>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+</div>

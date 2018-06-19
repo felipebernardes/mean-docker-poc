@@ -1,0 +1,43 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+        aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" [routerLink]="['/']">Sistema de Compras | Listagem de Compras</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="starter-template">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Data da Compra</th>
+          <th>Data de Entrega</th>
+          <th>Status</th>
+          <th>Produtos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let compra of compras">
+          <td>{{compra.dataCompra}}</td>
+          <td>{{compra.dataEntrega}}</td>
+          <td>{{compra.status}}</td>
+          <td>
+            <ul>
+              <li *ngFor="let produto of compra.produtos">{{produto.descricao}} x {{produto.quantidade}}</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
