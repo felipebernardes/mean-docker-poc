@@ -8,6 +8,7 @@ import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { ComprasComponent } from './compras/compras.component';
+import { ComprasService } from './compras/compras.service';
 import { NovaCompraComponent } from './compras/nova-compra/nova-compra.component';
 
 @NgModule({
@@ -19,7 +20,7 @@ import { NovaCompraComponent } from './compras/nova-compra/nova-compra.component
     AppRouting
   ],
   declarations: [AppComponent, PageNotFoundComponent, ComprasComponent, NovaCompraComponent],
-  providers: [],
+  providers: [ComprasService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

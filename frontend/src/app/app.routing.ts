@@ -6,7 +6,7 @@ import { ComprasComponent } from './compras/compras.component';
 import { NovaCompraComponent } from './compras/nova-compra/nova-compra.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/users' },
+  { path: '', pathMatch: 'full', redirectTo: '/' },
   { path: 'compras', component: ComprasComponent },
   { path: 'nova-compra', component: NovaCompraComponent },
   { path: 'page-not-found', component: PageNotFoundComponent },

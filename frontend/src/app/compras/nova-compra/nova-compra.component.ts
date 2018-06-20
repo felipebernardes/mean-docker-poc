@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
+import { ComprasService } from '../compras.service';
 
 @Component({
   selector: 'novacompra',
   templateUrl: './nova-compra.component.html'
 })
 export class NovaCompraComponent {
-  constructor() {}
+  constructor(private comprasService: ComprasService) {}
 
   produtos = [
     {
@@ -35,5 +36,24 @@ export class NovaCompraComponent {
     }
   ]
 
-  getTotal = () => this.produtos.reduce((sum, curr) => sum + (curr.preco * curr.quantidade), 0);
+  getTotal() {
+    return this.produtos.reduce((sum, curr) => sum + (curr.preco * curr.quantidade), 0);
+  }
+
+  save() {
+    console.log('clicou');
+    const compra = {
+      dataCompra: (new Date()).toString().substring(0,15),
+      dataEntrega: (new Date().setDate(new Date().getDate() + 10)).toString().substring(0,15),
+      preco: this.getTotal(),
+      produtos: this.produtos
+    }
+
+
+    this.comprasService.create(compra).subscribe(() => {
+      //this.message.success('Compra criada com sucesso!');
+      //this.modal.hide(this.form);
+      console.log('deu');
+    });
+  }
 }

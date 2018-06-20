@@ -5,3 +5,15 @@ body {
 .starter-template {
   padding: 40px 15px;
 }
+
+
+.aba-nav {
+  padding: 1rem;
+  background-color: rgba(0,0,0,.1);
+  transition: all .2 ease;
+  text-transform: uppercase;
+}
+
+.aba-nav:hover {
+  background-color: rgba(0,50,0,.2);
+}
